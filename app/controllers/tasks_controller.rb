@@ -21,4 +21,11 @@ class TasksController < ApplicationController
     @task.update(params[:task])
     render('tasks/show.html.erb')
   end
+
+  def destroy
+    @task_to_destroy = Task.find(params[:id])
+    @task_to_destroy.destroy
+    @tasks = Task.all
+    render('tasks/index.html.erb')
+  end
 end
