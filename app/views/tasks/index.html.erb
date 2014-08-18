@@ -1,6 +1,14 @@
 <h1>Tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li> <%= task.description%> </li>
+    <li> <a href="/tasks/<%= task.id %>"><%= task.description%> </a></li>
   <% end %>
 </ul>
+
+<h2>Create New Task</h2>
+
+<form action ="/tasks/" method="post">
+  <label for="task_description">Description:</label>
+  <input id="task_description" name="task[description]" type="text">
+  <button>Create Task</button>
+</form>
